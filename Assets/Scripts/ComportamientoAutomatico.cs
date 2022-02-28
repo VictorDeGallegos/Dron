@@ -22,6 +22,9 @@ public class ComportamientoAutomatico : MonoBehaviour
     }
 
     actuador.Flotar();
+
+    //Comportmaiento automatico dado por el ayudante
+    //Problema Principal con esta forma es generar un codigo spaguetti y tener cosas revueltas
     if (sensor.FrenteAPared())
     {
       actuador.Detener();
