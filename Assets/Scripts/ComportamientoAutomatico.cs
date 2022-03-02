@@ -8,14 +8,24 @@ public class ComportamientoAutomatico : MonoBehaviour
   private Sensores sensor;
   private Actuadores actuador;
 
+  public GameObject baseCarga;
+  public Transform baseCargaT;
   public int grados = 0;
   public bool rotando = false, dir = false;
+  public Vector3 posBase = Vector3.zero; //(0,0,0)
+
 
 
   void Start()
   {
     sensor = GetComponent<Sensores>();
     actuador = GetComponent<Actuadores>();
+    // posBase = tranform.transform.position;
+    // posBase = GameObject.Find("Base").transform.position;
+    // posBase = baseCarga.transform.position;
+    posBase = baseCargaT.position;
+    posBase = new Vector3(posBase.x, transform.position.y, posBase.z);
+
   }
 
   void FixedUpdate()
@@ -26,30 +36,38 @@ public class ComportamientoAutomatico : MonoBehaviour
     }
 
     actuador.Flotar();
-    if (rotando)
+    if (sensor.Bateria() < 20)
     {
-      rotar();
-    }
-    //Comportmaiento automatico dado por el ayudante
-    //Problema Principal con esta forma es generar un codigo spaguetti y tener cosas revueltas
-    else if (sensor.FrenteAPared())
-    {
+      //Origen destino velocidad
       actuador.Detener();
-      dir = randomDir();
-      rotando = true;
+      transform.position = Vector3.MoveTowards(sensor.Ubicacion(), posBase, Time.deltaTime);
     }
     else
     {
-      actuador.Adelante();
-    }
+      if (rotando)
+      {
+        rotar();
+      }
+      //Comportmaiento automatico dado por el ayudante
+      //Problema Principal con esta forma es generar un codigo spaguetti y tener cosas revueltas
+      else if (sensor.FrenteAPared())
+      {
+        actuador.Detener();
+        dir = randomDir();
+        rotando = true;
+      }
+      else
+      {
+        actuador.Adelante();
+      }
 
-    if (sensor.TocandoBasura())
-    {
-      actuador.Limpiar(sensor.GetBasura());
-      Debug.Log("Limpie basura");
+      if (sensor.TocandoBasura())
+      {
+        actuador.Limpiar(sensor.GetBasura());
+        Debug.Log("Limpie basura");
+      }
     }
   }
-
   void rotar()
   {
     grados++;
