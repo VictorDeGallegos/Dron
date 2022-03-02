@@ -8,6 +8,10 @@ public class ComportamientoAutomatico : MonoBehaviour
   private Sensores sensor;
   private Actuadores actuador;
 
+  public int grados = 0;
+  public bool rotando = false, dir = false;
+
+
   void Start()
   {
     sensor = GetComponent<Sensores>();
@@ -22,17 +26,52 @@ public class ComportamientoAutomatico : MonoBehaviour
     }
 
     actuador.Flotar();
-
+    if (rotando)
+    {
+      rotar();
+    }
     //Comportmaiento automatico dado por el ayudante
     //Problema Principal con esta forma es generar un codigo spaguetti y tener cosas revueltas
-    if (sensor.FrenteAPared())
+    else if (sensor.FrenteAPared())
     {
       actuador.Detener();
-      actuador.GirarDerecha();
+      dir = randomDir();
+      rotando = true;
     }
     else
     {
       actuador.Adelante();
     }
+
+    if (sensor.TocandoBasura())
+    {
+      actuador.Limpiar(sensor.GetBasura());
+      Debug.Log("Limpie basura");
+    }
+  }
+
+  void rotar()
+  {
+    grados++;
+    if (grados == 90)
+    {
+      rotando = false;
+      grados = 0;
+    }
+    else
+    {
+      if (dir)
+      {
+        actuador.GirarDerecha();
+      }
+      else
+      {
+        actuador.GirarIzquierda();
+      }
+    }
+  }
+  bool randomDir()
+  {
+    return (Random.value > 0.5f);
   }
 }
