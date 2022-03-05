@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComportamientoAutomatico2 : MonoBehaviour
 {
-
+  private Drone _target;
   private Sensores sensor;
   private Actuadores actuador;
   public GameObject baseCarga;
@@ -13,7 +13,11 @@ public class ComportamientoAutomatico2 : MonoBehaviour
   public bool rotando = false, dir = false;
   public Vector3 posBase = Vector3.zero; //(0,0,0)
 
-  private enum Estado { AvanzarAlFrente, RotarRandom }; //Generar pequeña estructura de datos con un estado inicial llamado AvanzarAlFrente
+  public Team Team => _team;
+  [SerializeField] private Team _team;
+
+  private enum Estado { AvanzarAlFrente, RotarRandom, Attack }; //Generar pequeña estructura de datos con un estado inicial llamado AvanzarAlFrentee
+
   private Estado estadoActual; //El estado actual indicara la accion que se realiza "AvanzarAlFrente o RotarRandom"
 
   void Start()
@@ -32,15 +36,16 @@ public class ComportamientoAutomatico2 : MonoBehaviour
     }
 
     actuador.Flotar();
-    if (sensor.Bateria() < 20)
+    if (sensor.Bateria() < 60)
     {
       //Origen destino velocidad
       actuador.Detener();
       transform.position = Vector3.MoveTowards(sensor.Ubicacion(), posBase, Time.deltaTime);
+      Start();
     }
     else
 
-      //Punto para determinar la accion a realizar
+      //Punto para determinar la accion a realizarr
       switch (estadoActual)
       {
         //CASO 1 AVANZAR AL FRENTE
@@ -76,6 +81,15 @@ public class ComportamientoAutomatico2 : MonoBehaviour
           actuador.Detener();
           if (!sensor.FrenteAPared())
             estadoActual = Estado.AvanzarAlFrente;
+          break;
+
+        //Caso 3 atacar y destruir rival
+        case (Estado.Attack):
+          if (_target != null)
+          {
+            Destroy(_target.gameObject);
+            Debug.Log("Rival eliminado");
+          }
           break;
       }
   }
