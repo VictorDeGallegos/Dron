@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class ComportamientoAutomatico2 : MonoBehaviour
 {
   private Sensores sensor;
   private Actuadores actuador;
   private int count;
+  public TextMeshProUGUI countText;
   public GameObject baseCarga;
   public Transform baseCargaT;
   public int grados = 0;
@@ -25,6 +28,7 @@ public class ComportamientoAutomatico2 : MonoBehaviour
     posBase = baseCargaT.position;
     posBase = new Vector3(posBase.x, transform.position.y, posBase.z);
     count = 0;
+    SetCountText();
   }
 
   void FixedUpdate()
@@ -70,11 +74,12 @@ public class ComportamientoAutomatico2 : MonoBehaviour
           {
             actuador.Limpiar(sensor.GetBasura());
             count = count + 1;
+            SetCountText();
             Debug.Log("Punto obtenido");
           }
           break;
 
-        //CASO 2 ROTAR DE MANERA CONTINUA
+        //CASO 2 ROTAR DE MANERA CONTINUAA
         //Girar levemente y cambiar al estado AvanzarAlFrente si no hay pared u objeto al frente al frente al frente al frente al frente
         //Se trata de un movimiento continuo que gira y avanza al mismo tiempo 
         case (Estado.RotarRandom):
@@ -87,6 +92,10 @@ public class ComportamientoAutomatico2 : MonoBehaviour
       }
   }
 
+  void SetCountText()
+  {
+    countText.text = "Puntos: " + count.ToString();
+  }
   void rotar()
   {
     grados++;

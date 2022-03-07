@@ -7,6 +7,7 @@ public class Actuadores : MonoBehaviour
   private Rigidbody rb; // Componente para simular acciones físicas realistas
   private Bateria bateria; // Componente adicional (script) que representa la batería
   private Sensores sensor; // Componente adicional (script) para obtener información de los sensores
+  private Radar radar; // Componente adicional (script) para obtener información de los sensores
 
   private float upForce; // Indica la fuerza de elevación del dron
   private float movementForwardSpeed = 100.0f; // Escalar para indicar fuerza de movimiento frontal
