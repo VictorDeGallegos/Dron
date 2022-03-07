@@ -6,6 +6,7 @@ public class ComportamientoAutomatico2 : MonoBehaviour
 {
   private Sensores sensor;
   private Actuadores actuador;
+  private int count;
   public GameObject baseCarga;
   public Transform baseCargaT;
   public int grados = 0;
@@ -23,6 +24,7 @@ public class ComportamientoAutomatico2 : MonoBehaviour
     actuador = GetComponent<Actuadores>();
     posBase = baseCargaT.position;
     posBase = new Vector3(posBase.x, transform.position.y, posBase.z);
+    count = 0;
   }
 
   void FixedUpdate()
@@ -67,6 +69,7 @@ public class ComportamientoAutomatico2 : MonoBehaviour
           if (sensor.TocandoBasura())
           {
             actuador.Limpiar(sensor.GetBasura());
+            count = count + 1;
             Debug.Log("Punto obtenido");
           }
           break;
