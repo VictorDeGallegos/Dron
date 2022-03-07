@@ -2681,7 +2681,6 @@ GameObject:
   - component: {fileID: 1092455606}
   - component: {fileID: 1092455605}
   - component: {fileID: 1092455604}
-  - component: {fileID: 1092455603}
   m_Layer: 0
   m_Name: Dron (1)
   m_TagString: Untagged
@@ -2689,22 +2688,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1092455603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092455602}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1064147a717c1444198807757ee0f518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _team: 0
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &1092455604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2723,7 +2706,6 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
-  _team: 1
 --- !u!114 &1092455605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2766,6 +2748,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd889c01fe008908dbd31a1ec2ccec28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radar: {fileID: 1007230712}
+  rayo: {fileID: 976975430}
+  bateria: {fileID: 1169327612}
+  actuador: {fileID: 1092455608}
   estacionDeCarga: {fileID: 357864323}
 --- !u!114 &1092455608
 MonoBehaviour:
@@ -4210,7 +4196,6 @@ GameObject:
   - component: {fileID: 1902013076}
   - component: {fileID: 1902013080}
   - component: {fileID: 1902013081}
-  - component: {fileID: 1902013082}
   m_Layer: 0
   m_Name: Dron
   m_TagString: Untagged
@@ -4284,6 +4269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd889c01fe008908dbd31a1ec2ccec28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radar: {fileID: 1007230712}
+  rayo: {fileID: 976975430}
+  bateria: {fileID: 1169327612}
+  actuador: {fileID: 1902013079}
   estacionDeCarga: {fileID: 546161899}
 --- !u!114 &1902013079
 MonoBehaviour:
@@ -4333,23 +4322,6 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
-  _team: 0
---- !u!114 &1902013082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902013074}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1064147a717c1444198807757ee0f518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _team: 0
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1967994347
 GameObject:
   m_ObjectHideFlags: 0

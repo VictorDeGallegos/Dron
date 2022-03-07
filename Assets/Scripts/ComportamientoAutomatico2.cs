@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class ComportamientoAutomatico2 : MonoBehaviour
 {
-  private Drone _target;
   private Sensores sensor;
   private Actuadores actuador;
   public GameObject baseCarga;
   public Transform baseCargaT;
   public int grados = 0;
   public bool rotando = false, dir = false;
-  public Vector3 posBase = Vector3.zero; //(0,0,0)
+  public Vector3 posBase = Vector3.zero; //(0,0,0) 
 
-  public Team Team => _team;
-  [SerializeField] private Team _team;
 
   private enum Estado { AvanzarAlFrente, RotarRandom, Attack }; //Generar pequeña estructura de datos con un estado inicial llamado AvanzarAlFrentee
 
@@ -83,14 +80,7 @@ public class ComportamientoAutomatico2 : MonoBehaviour
             estadoActual = Estado.AvanzarAlFrente;
           break;
 
-        //Caso 3 atacar y destruir rival
-        case (Estado.Attack):
-          if (_target != null)
-          {
-            Destroy(_target.gameObject);
-            Debug.Log("Rival eliminado");
-          }
-          break;
+          //Caso 3 atacar y destruir riva
       }
   }
 
