@@ -10,6 +10,7 @@ public class ComportamientoAutomatico2 : MonoBehaviour
   private Actuadores actuador;
   private int count;
   public TextMeshProUGUI countText;
+  public GameObject ganadorTextObject;
   public GameObject baseCarga;
   public Transform baseCargaT;
   public int grados = 0;
@@ -29,6 +30,7 @@ public class ComportamientoAutomatico2 : MonoBehaviour
     posBase = new Vector3(posBase.x, transform.position.y, posBase.z);
     count = 0;
     SetCountText();
+    ganadorTextObject.SetActive(false);
   }
 
   void FixedUpdate()
@@ -95,6 +97,10 @@ public class ComportamientoAutomatico2 : MonoBehaviour
   void SetCountText()
   {
     countText.text = "Puntos: " + count.ToString();
+    if (count >= 3)
+    {
+      ganadorTextObject.SetActive(true);
+    }
   }
   void rotar()
   {
