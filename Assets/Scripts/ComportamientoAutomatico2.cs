@@ -91,6 +91,11 @@ public class ComportamientoAutomatico2 : MonoBehaviour
           break;
 
           //Caso 3 atacar y destruir riva
+          case (Estado.Attack):
+            if(!sensor.FrenteAPared());
+            estadoActual=Estado.Attack;
+            actuador.Detener();
+            break;
       }
   }
 
