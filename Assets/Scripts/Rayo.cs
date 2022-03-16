@@ -15,7 +15,7 @@ public class Rayo : MonoBehaviour
   {
     // Se muestra el rayo únicamente en la pantalla de Escena (Scene)
     Debug.DrawLine(transform.position, transform.position + (transform.forward * longitudDeRayo), Color.blue);
-    Debug.DrawLine(transform.position, transform.position + (transform.up * -1 * longitudDeRayo), Color.red);
+    Debug.DrawLine(transform.position, transform.position + (transform.right * -1 * longitudDeRayo), Color.red);
   }
 
   void FixedUpdate()
@@ -23,7 +23,7 @@ public class Rayo : MonoBehaviour
     // Similar a los métodos OnTrigger y OnCollision, se detectan colisiones con el rayo:
     frenteAPared = false;
     RaycastHit raycastHit;
-    RaycastHit raycastHitBajo;
+
     if (Physics.Raycast(transform.position, transform.forward, out raycastHit, longitudDeRayo))
     {
       if (raycastHit.collider.gameObject.CompareTag("Pared"))
@@ -31,12 +31,12 @@ public class Rayo : MonoBehaviour
         frenteAPared = true;
       }
     }
-    if (Physics.Raycast(transform.position, transform.up * -1, out raycastHitBajo, longitudDeRayo))
-    {
-      // if(raycastHit.collider.gameObject.CompareTag("Pared")) {
-      //     frenteAPared = true;
-      // }
-    }
+    // if (Physics.Raycast(transform.position, transform.up * -1, out raycastHitBajo, longitudDeRayo))
+    // {
+    //   // if(raycastHit.collider.gameObject.CompareTag("Pared")) {
+    //   //     frenteAPared = true;
+    //   // }
+    // }
   }
 
   // Ejemplo de métodos públicos que podrán usar otros componentes (scripts):
