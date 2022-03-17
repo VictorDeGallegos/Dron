@@ -24,6 +24,12 @@ public class ComportamientoAutomatico2 : MonoBehaviour
   private enum Estado { AvanzarAlFrente, RotarRandom, Attack }; //Generar pequeña estructura de datos con un estado inicial llamado AvanzarAlFrentee
   private Estado estadoActual; //El estado actual indicara la accion que se realiza "AvanzarAlFrente o RotarRandom"
 
+  public GameObject Bala;
+  public float tiempoTranscurrido = 0;
+  public float tiempodeDisparo;
+
+  public Material rojo;
+  public Material azul;
   void Start()
   {
     sensor = GetComponent<Sensores>();
@@ -35,6 +41,10 @@ public class ComportamientoAutomatico2 : MonoBehaviour
     ganadorTextObject.SetActive(false);
   }
 
+  void Update()
+  {
+    tiempoTranscurrido += Time.deltaTime;
+  }
   void FixedUpdate()
   {
     if (sensor.Bateria() <= 0)
@@ -48,7 +58,7 @@ public class ComportamientoAutomatico2 : MonoBehaviour
       //Origen destino velocidad
       actuador.Detener();
       transform.position = Vector3.MoveTowards(sensor.Ubicacion(), posBase, Time.deltaTime);
-      Start();
+
     }
     else
 
@@ -123,6 +133,26 @@ public class ComportamientoAutomatico2 : MonoBehaviour
       else
       {
         actuador.GirarIzquierda();
+      }
+    }
+  }
+  internal void Disparar(Vector3 direccion)
+  {
+    Debug.Log("Disparar");
+    if (tiempoTranscurrido > tiempodeDisparo)
+    {
+      tiempoTranscurrido = 0;
+      GameObject balaTemporal = Instantiate(Bala, transform.position, Quaternion.identity);
+      balaTemporal.GetComponent<Bala>().direccion = direccion; // Accediendo a la variable bala
+      if (transform.parent.CompareTag("DronRojo"))
+      {
+        balaTemporal.GetComponent<Bala>().material = rojo; // accediendo a color de bala
+
+      }
+      else
+      {
+        balaTemporal.GetComponent<Bala>().material = azul;// accediendo a color de bala
+
       }
     }
   }

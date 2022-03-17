@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 127537521}
   m_Layer: 0
   m_Name: Dron (3)
-  m_TagString: Untagged
+  m_TagString: DronRojo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1120,6 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18faaeb3189264c26ab8163e2d3a6fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
   countText: {fileID: 162773137}
   ganadorTextObject: {fileID: 672949351}
   baseCarga: {fileID: 2047095476}
@@ -1128,6 +1129,11 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
+  Bala: {fileID: 9187941090981341124, guid: 08d5233149a5b47b5898fb266ea56091, type: 3}
+  tiempoTranscurrido: 0
+  tiempodeDisparo: 2
+  rojo: {fileID: 2100000, guid: 0e0c0e34fc38a448d94ec3b12343f03c, type: 2}
+  azul: {fileID: 2100000, guid: 0ac8b2a931bc74437897d5eb1e72f911, type: 2}
 --- !u!114 &127537522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,7 +1543,7 @@ GameObject:
   - component: {fileID: 184485231}
   m_Layer: 0
   m_Name: Dron (7)
-  m_TagString: Untagged
+  m_TagString: DronAzul
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1554,6 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18faaeb3189264c26ab8163e2d3a6fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
   countText: {fileID: 1530386998}
   ganadorTextObject: {fileID: 211454963}
   baseCarga: {fileID: 907343048}
@@ -1562,6 +1569,11 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
+  Bala: {fileID: 9187941090981341124, guid: 08d5233149a5b47b5898fb266ea56091, type: 3}
+  tiempoTranscurrido: 0
+  tiempodeDisparo: 2
+  rojo: {fileID: 2100000, guid: 0e0c0e34fc38a448d94ec3b12343f03c, type: 2}
+  azul: {fileID: 2100000, guid: 0ac8b2a931bc74437897d5eb1e72f911, type: 2}
 --- !u!114 &184485232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,6 +2344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
+  longitudDeDisparo: 0
 --- !u!4 &290199198
 Transform:
   m_ObjectHideFlags: 0
@@ -4269,6 +4282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
+  longitudDeDisparo: 10
 --- !u!4 &596226786
 Transform:
   m_ObjectHideFlags: 0
@@ -4704,7 +4718,7 @@ GameObject:
   - component: {fileID: 642310856}
   m_Layer: 0
   m_Name: Dron (2)
-  m_TagString: Untagged
+  m_TagString: DronRojo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4721,6 +4735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18faaeb3189264c26ab8163e2d3a6fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
   countText: {fileID: 162773137}
   ganadorTextObject: {fileID: 672949351}
   baseCarga: {fileID: 685926071}
@@ -4729,6 +4744,11 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
+  Bala: {fileID: 9187941090981341124, guid: 08d5233149a5b47b5898fb266ea56091, type: 3}
+  tiempoTranscurrido: 0
+  tiempodeDisparo: 2
+  rojo: {fileID: 2100000, guid: 0e0c0e34fc38a448d94ec3b12343f03c, type: 2}
+  azul: {fileID: 2100000, guid: 0ac8b2a931bc74437897d5eb1e72f911, type: 2}
 --- !u!114 &642310857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5888,6 +5908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
+  longitudDeDisparo: 0
 --- !u!4 &749713171
 Transform:
   m_ObjectHideFlags: 0
@@ -6130,7 +6151,7 @@ GameObject:
   - component: {fileID: 783243879}
   m_Layer: 0
   m_Name: Dron (4)
-  m_TagString: Untagged
+  m_TagString: DronAzul
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6147,6 +6168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18faaeb3189264c26ab8163e2d3a6fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
   countText: {fileID: 1530386998}
   ganadorTextObject: {fileID: 211454963}
   baseCarga: {fileID: 1235692761}
@@ -6155,6 +6177,11 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
+  Bala: {fileID: 9187941090981341124, guid: 08d5233149a5b47b5898fb266ea56091, type: 3}
+  tiempoTranscurrido: 0
+  tiempodeDisparo: 2
+  rojo: {fileID: 2100000, guid: 0e0c0e34fc38a448d94ec3b12343f03c, type: 2}
+  azul: {fileID: 2100000, guid: 0ac8b2a931bc74437897d5eb1e72f911, type: 2}
 --- !u!114 &783243880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7970,6 +7997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
+  longitudDeDisparo: 10
 --- !u!1 &981866800
 GameObject:
   m_ObjectHideFlags: 0
@@ -8633,7 +8661,7 @@ GameObject:
   - component: {fileID: 1092455604}
   m_Layer: 0
   m_Name: Dron (1)
-  m_TagString: Untagged
+  m_TagString: DronRojo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8650,6 +8678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18faaeb3189264c26ab8163e2d3a6fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
   countText: {fileID: 162773137}
   ganadorTextObject: {fileID: 672949351}
   baseCarga: {fileID: 357864323}
@@ -8658,6 +8687,11 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
+  Bala: {fileID: 9187941090981341124, guid: 08d5233149a5b47b5898fb266ea56091, type: 3}
+  tiempoTranscurrido: 0
+  tiempodeDisparo: 2
+  rojo: {fileID: 2100000, guid: 0e0c0e34fc38a448d94ec3b12343f03c, type: 2}
+  azul: {fileID: 2100000, guid: 0ac8b2a931bc74437897d5eb1e72f911, type: 2}
 --- !u!114 &1092455605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8899,6 +8933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
+  longitudDeDisparo: 10
 --- !u!4 &1104161752
 Transform:
   m_ObjectHideFlags: 0
@@ -8962,6 +8997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
+  longitudDeDisparo: 10
 --- !u!1001 &1125119468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10165,7 +10201,7 @@ GameObject:
   - component: {fileID: 1295489671}
   m_Layer: 0
   m_Name: Dron (5)
-  m_TagString: Untagged
+  m_TagString: DronAzul
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10182,6 +10218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18faaeb3189264c26ab8163e2d3a6fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
   countText: {fileID: 1530386998}
   ganadorTextObject: {fileID: 211454963}
   baseCarga: {fileID: 540770928}
@@ -10190,6 +10227,11 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
+  Bala: {fileID: 9187941090981341124, guid: 08d5233149a5b47b5898fb266ea56091, type: 3}
+  tiempoTranscurrido: 0
+  tiempodeDisparo: 2
+  rojo: {fileID: 2100000, guid: 0e0c0e34fc38a448d94ec3b12343f03c, type: 2}
+  azul: {fileID: 2100000, guid: 0ac8b2a931bc74437897d5eb1e72f911, type: 2}
 --- !u!114 &1295489672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14682,7 +14724,7 @@ GameObject:
   - component: {fileID: 1902013081}
   m_Layer: 0
   m_Name: Dron
-  m_TagString: Untagged
+  m_TagString: DronRojo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14800,6 +14842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18faaeb3189264c26ab8163e2d3a6fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
   countText: {fileID: 162773137}
   ganadorTextObject: {fileID: 672949351}
   baseCarga: {fileID: 546161899}
@@ -14808,6 +14851,11 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
+  Bala: {fileID: 9187941090981341124, guid: 08d5233149a5b47b5898fb266ea56091, type: 3}
+  tiempoTranscurrido: 0
+  tiempodeDisparo: 2
+  rojo: {fileID: 2100000, guid: 0e0c0e34fc38a448d94ec3b12343f03c, type: 2}
+  azul: {fileID: 2100000, guid: 0ac8b2a931bc74437897d5eb1e72f911, type: 2}
 --- !u!1 &1903166192
 GameObject:
   m_ObjectHideFlags: 0
@@ -14948,6 +14996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
+  longitudDeDisparo: 0
 --- !u!4 &1910352970
 Transform:
   m_ObjectHideFlags: 0
@@ -15842,6 +15891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
+  longitudDeDisparo: 0
 --- !u!4 &2073442854
 Transform:
   m_ObjectHideFlags: 0
@@ -15953,7 +16003,7 @@ GameObject:
   - component: {fileID: 2119284739}
   m_Layer: 0
   m_Name: Dron (6)
-  m_TagString: Untagged
+  m_TagString: DronAzul
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15970,6 +16020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18faaeb3189264c26ab8163e2d3a6fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
   countText: {fileID: 1530386998}
   ganadorTextObject: {fileID: 211454963}
   baseCarga: {fileID: 8677786}
@@ -15978,6 +16029,11 @@ MonoBehaviour:
   rotando: 0
   dir: 0
   posBase: {x: 0, y: 0, z: 0}
+  Bala: {fileID: 9187941090981341124, guid: 08d5233149a5b47b5898fb266ea56091, type: 3}
+  tiempoTranscurrido: 0
+  tiempodeDisparo: 2
+  rojo: {fileID: 2100000, guid: 0e0c0e34fc38a448d94ec3b12343f03c, type: 2}
+  azul: {fileID: 2100000, guid: 0ac8b2a931bc74437897d5eb1e72f911, type: 2}
 --- !u!114 &2119284740
 MonoBehaviour:
   m_ObjectHideFlags: 0
