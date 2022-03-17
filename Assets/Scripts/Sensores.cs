@@ -55,7 +55,7 @@ public class Sensores : MonoBehaviour
     }
     if (other.gameObject.CompareTag("BaseDeCarga"))
     {
-      actuador.CargarBateria();
+      actuador.CargarBateria(); // Se paso a base de prueba
     }
   }
 

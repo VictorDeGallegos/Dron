@@ -12,6 +12,8 @@ public class Rayo : MonoBehaviour
   public float longitudDeDisparo;
   private bool frenteAPared;
 
+  public LayerMask layerMask;
+
   void Update()
   {
     // Se muestra el rayo únicamente en la pantalla de Escena (Scene)
@@ -32,12 +34,20 @@ public class Rayo : MonoBehaviour
         frenteAPared = true;
       }
     }
-    if (Physics.Raycast(transform.position, transform.forward, out raycastHit, longitudDeDisparo))
+    if (Physics.Raycast(transform.position, transform.forward, out raycastHit, longitudDeDisparo, layerMask, QueryTriggerInteraction.Ignore))// Para saber si se colisionara o no con ciertos colliders, ignore para trigger
     {
-      // Debug.Log("Choque con" + raycastHit.collider.gameObject.transform.parent.name);
-      if (raycastHit.collider.gameObject.transform.parent.gameObject.CompareTag("DronAzul") && gameObject.transform.parent.CompareTag("DronRojo"))
+      // Debug.Log("Choque con" + raycastHit.collider.gameObject.name);
+      if (raycastHit.collider.gameObject.transform.parent.gameObject.CompareTag("DronAzul") && transform.parent.CompareTag("DronRojo"))
       {
-        // Debug.Log("Disparando");
+        Debug.Log("DisparandoR");
+        // Accediendo al padre para utilizar en cualquier script
+        Vector3 direccion = raycastHit.collider.gameObject.transform.parent.position;
+        transform.parent.GetComponent<ComportamientoAutomatico2>().Disparar(direccion);
+      }
+
+      if (raycastHit.collider.gameObject.transform.parent.gameObject.CompareTag("DronRojo") && gameObject.transform.parent.CompareTag("DronAzul"))
+      {
+        Debug.Log("DisparandoA");
         // Accediendo al padre para utilizar en cualquier script
         Vector3 direccion = raycastHit.collider.gameObject.transform.parent.position;
         transform.parent.GetComponent<ComportamientoAutomatico2>().Disparar(direccion);

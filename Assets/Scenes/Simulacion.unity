@@ -2344,7 +2344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
-  longitudDeDisparo: 0
+  longitudDeDisparo: 10
 --- !u!4 &290199198
 Transform:
   m_ObjectHideFlags: 0
@@ -5908,7 +5908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
-  longitudDeDisparo: 0
+  longitudDeDisparo: 10
 --- !u!4 &749713171
 Transform:
   m_ObjectHideFlags: 0
@@ -14996,7 +14996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
-  longitudDeDisparo: 0
+  longitudDeDisparo: 10
 --- !u!4 &1910352970
 Transform:
   m_ObjectHideFlags: 0
@@ -15891,7 +15891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   longitudDeRayo: 7
-  longitudDeDisparo: 0
+  longitudDeDisparo: 10
 --- !u!4 &2073442854
 Transform:
   m_ObjectHideFlags: 0

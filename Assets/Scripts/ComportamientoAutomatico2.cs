@@ -138,19 +138,21 @@ public class ComportamientoAutomatico2 : MonoBehaviour
   }
   internal void Disparar(Vector3 direccion)
   {
-    Debug.Log("Disparar");
+    // Debug.Log("Disparar");
     if (tiempoTranscurrido > tiempodeDisparo)
     {
       tiempoTranscurrido = 0;
       GameObject balaTemporal = Instantiate(Bala, transform.position, Quaternion.identity);
       balaTemporal.GetComponent<Bala>().direccion = direccion; // Accediendo a la variable bala
-      if (transform.parent.CompareTag("DronRojo"))
+      if (transform.CompareTag("DronRojo"))
       {
+        // Debug.Log("DispararR");
         balaTemporal.GetComponent<Bala>().material = rojo; // accediendo a color de bala
 
       }
       else
       {
+        // Debug.Log("DispararA");
         balaTemporal.GetComponent<Bala>().material = azul;// accediendo a color de bala
 
       }

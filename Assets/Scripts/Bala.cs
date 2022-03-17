@@ -14,7 +14,7 @@ public class Bala : MonoBehaviour
 
   void Start()
   {
-    GetComponent<MeshRenderer>().material = material;
+    GetComponent<MeshRenderer>().material = material; //Siempre que esta sobre un objeto o ligado a el hace referencia a este objeto
   }
   // Update is called once per frame
   void Update()
@@ -28,14 +28,14 @@ public class Bala : MonoBehaviour
       Debug.Log("Choque con BA" + col.transform.parent.name);
       Debug.Log("DESTRUIR" + col.transform.parent.name);
       Destroy(col.transform.parent.gameObject);
-      Destroy(gameObject);
+      Destroy(gameObject); //Destruyendo a mi mismo
     }
 
     if (col.transform.parent.CompareTag("DronRojo") && GetComponent<MeshRenderer>().sharedMaterial == azul)
     {
       Debug.Log("Choque con BR" + col.transform.parent.name);
       Destroy(col.transform.parent.gameObject);
-      Destroy(gameObject);
+      Destroy(gameObject); //Destruyendo a alguien mas
     }
   }
 }
