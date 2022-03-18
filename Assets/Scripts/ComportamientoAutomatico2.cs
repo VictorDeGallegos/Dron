@@ -103,8 +103,6 @@ public class ComportamientoAutomatico2 : MonoBehaviour
           if (!sensor.FrenteAPared())
             estadoActual = Estado.AvanzarAlFrente;
           break;
-
-          //Caso 3 atacar y destruir riva
       }
   }
 
