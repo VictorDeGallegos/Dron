@@ -92,6 +92,7 @@ public class Actuadores : MonoBehaviour
 
   public void CargarBateria()
   {
+    Debug.Log("Cargando");
     bateria.Cargar();
   }
 }

@@ -9,13 +9,16 @@ public class Rayo : MonoBehaviour
 {
 
   public float longitudDeRayo;
+  public float longitudDeDisparo;
   private bool frenteAPared;
+
+  public LayerMask layerMask;
 
   void Update()
   {
     // Se muestra el rayo únicamente en la pantalla de Escena (Scene)
     Debug.DrawLine(transform.position, transform.position + (transform.forward * longitudDeRayo), Color.blue);
-    Debug.DrawLine(transform.position, transform.position + (transform.up * -1 * longitudDeRayo), Color.red);
+    Debug.DrawLine(transform.position, transform.position + (transform.forward * longitudDeDisparo), Color.red);
   }
 
   void FixedUpdate()
@@ -23,7 +26,7 @@ public class Rayo : MonoBehaviour
     // Similar a los métodos OnTrigger y OnCollision, se detectan colisiones con el rayo:
     frenteAPared = false;
     RaycastHit raycastHit;
-    RaycastHit raycastHitBajo;
+
     if (Physics.Raycast(transform.position, transform.forward, out raycastHit, longitudDeRayo))
     {
       if (raycastHit.collider.gameObject.CompareTag("Pared"))
@@ -31,11 +34,24 @@ public class Rayo : MonoBehaviour
         frenteAPared = true;
       }
     }
-    if (Physics.Raycast(transform.position, transform.up * -1, out raycastHitBajo, longitudDeRayo))
+    if (Physics.Raycast(transform.position, transform.forward, out raycastHit, longitudDeDisparo, layerMask, QueryTriggerInteraction.Ignore))// Para saber si se colisionara o no con ciertos colliders, ignore para trigger
     {
-      // if(raycastHit.collider.gameObject.CompareTag("Pared")) {
-      //     frenteAPared = true;
-      // }
+      // Debug.Log("Choque con" + raycastHit.collider.gameObject.name);
+      if (raycastHit.collider.gameObject.transform.parent.gameObject.CompareTag("DronAzul") && transform.parent.CompareTag("DronRojo"))
+      {
+        Debug.Log("DisparandoR");
+        // Accediendo al padre para utilizar en cualquier script
+        Vector3 direccion = raycastHit.collider.gameObject.transform.parent.position;
+        transform.parent.GetComponent<ComportamientoAutomatico2>().Disparar(direccion);
+      }
+
+      if (raycastHit.collider.gameObject.transform.parent.gameObject.CompareTag("DronRojo") && gameObject.transform.parent.CompareTag("DronAzul"))
+      {
+        Debug.Log("DisparandoA");
+        // Accediendo al padre para utilizar en cualquier script
+        Vector3 direccion = raycastHit.collider.gameObject.transform.parent.position;
+        transform.parent.GetComponent<ComportamientoAutomatico2>().Disparar(direccion);
+      }
     }
   }
 
