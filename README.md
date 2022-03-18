@@ -14,7 +14,8 @@ Implementación básica de un Dron autónomo en Unity.
 - Pensar tipo de implemntacion para futuros proyectos con el dron
 
 ## Video demostracion
-https://user-images.githubusercontent.com/41756950/157095522-057dd089-eaea-408b-8bac-bb529d1d0cb7.mov
+https://user-images.githubusercontent.com/41756950/159036502-da546b04-1a44-4bef-9b2e-01d61cb9b352.mov
+
 
 
 
